@@ -98,3 +98,128 @@ You may request all or part of the relationships as follows:
 * To request all relationships, pass the **`relationships`** query parameter without any value
 * To request specific relationships, pass the **`relationships`** query parameter with a comma separated list of accepted relationships \(**`prices`**, **`offers`**\).
 
+{% api-method method="post" host="https://api.growstocks.org" path="/v1/items" %}
+{% api-method-summary %}
+Create item
+{% endapi-method-summary %}
+
+{% api-method-description %}
+This endpoint will create a new item.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-form-data-parameters %}
+{% api-method-parameter name="id" type="string" required=true %}
+The item's ID
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="name" type="integer" required=true %}
+The item's name.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="rarity" type="string" required=false %}
+The item's rarity.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="description" type="string" required=false %}
+The item's description.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="category" type="string" required=false %}
+The item's category \(item/iotm\)
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="type" type="string" required=false %}
+The item's type.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="clothing\_type" type="string" required=false %}
+The item's clothing type.
+{% endapi-method-parameter %}
+{% endapi-method-form-data-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=201 %}
+{% api-method-response-example-description %}
+Item successfully created.
+{% endapi-method-response-example-description %}
+
+```
+{
+    "id": 606,
+    "name": "Product",
+    "description": "Try to quantify the PNG bus, maybe it will back up the multi-byte driver!",
+    "is_trending": 0,
+    "is_daily_quest": 0,
+    "daily_quest_quantity": 0,
+    "rarity": 999,
+    "category": "item",
+    "type": null,
+    "clothing_type": null,
+    "is_hidden": 0,
+    "is_locked": 0,
+    "added_on": "2021-07-15T23:07:32.000000Z"
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=422 %}
+{% api-method-response-example-description %}
+Item couldn't be created.
+{% endapi-method-response-example-description %}
+
+```
+{
+    "message": "The given data was invalid.",
+    "errors": {
+        "name": [
+            "The name field is required."
+        ]
+    }
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="delete" host="https://api.growstocks.org" path="/v1/items/:id" %}
+{% api-method-summary %}
+Delete item
+{% endapi-method-summary %}
+
+{% api-method-description %}
+This endpoint will delete the item corresponding to the given ID.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=204 %}
+{% api-method-response-example-description %}
+Item successfully deleted.
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=404 %}
+{% api-method-response-example-description %}
+Item does not exist.
+{% endapi-method-response-example-description %}
+
+```
+{
+    "message": "No query results for model [App\\Models\\Item] :id"
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+

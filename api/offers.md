@@ -153,7 +153,7 @@ Marketplace offer successfully created.
 ```
 {% endapi-method-response-example %}
 
-{% api-method-response-example httpCode=400 %}
+{% api-method-response-example httpCode=422 %}
 {% api-method-response-example-description %}
 Marketplace offer couldn't be created.
 {% endapi-method-response-example-description %}
