@@ -112,7 +112,7 @@ This endpoint will create a new price.
 {% api-method-request %}
 {% api-method-form-data-parameters %}
 {% api-method-parameter name="item\_id" type="integer" required=true %}
-The item's ID.
+The ID of the item you are creating a price for.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="quantity" type="integer" required=true %}
@@ -191,14 +191,14 @@ Update price
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This endpoint will create update the information corresponding to the price associated to the given ID. For security reasons, this endpoint is disabled and cannot be used by anyone.
+This endpoint will update the information corresponding to the price associated to the given ID. For security reasons, this endpoint is disabled and cannot be used by anyone.
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="id" type="integer" required=true %}
-The price's ID.
+The ID of the price you wish to update.
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 
@@ -270,7 +270,7 @@ Could not find a price matching this query.
 
 {% api-method-response-example httpCode=422 %}
 {% api-method-response-example-description %}
-Price couldn't be created.
+Price couldn't be updated.
 {% endapi-method-response-example-description %}
 
 ```
@@ -302,7 +302,7 @@ This endpoint will update the approval status of the price corresponding to the 
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="id" type="integer" required=true %}
-The price's ID.
+The ID of the price you with to approve.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="action" type="string" required=true %}
@@ -350,7 +350,7 @@ This endpoint will delete the price corresponding to the given ID.
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="id" type="integer" required=true %}
-The price's ID.
+The ID of the price you wish to delete.
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}

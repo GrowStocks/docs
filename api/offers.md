@@ -53,12 +53,12 @@ Marketplace data successfully retrieved.
 
 {% api-method-response-example httpCode=404 %}
 {% api-method-response-example-description %}
-Could not find an item matching this query.
+Could not find an offer matching this query.
 {% endapi-method-response-example-description %}
 
 ```
 {
-  "message": "No query results for model [App\\Models\\Item] :item_name"
+  "message": "No query results for model [App\\Models\\Offer] :id"
 }
 ```
 {% endapi-method-response-example %}
@@ -167,6 +167,155 @@ Marketplace offer couldn't be created.
         ],
         ...
     }
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="put" host="https://api.growstocks.org" path="/v1/offers/:id" %}
+{% api-method-summary %}
+Update offer
+{% endapi-method-summary %}
+
+{% api-method-description %}
+This endpoint will update the information corresponding to the offer associated to the given ID.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="id" type="integer" required=true %}
+The ID of the offer you wish to update.
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-form-data-parameters %}
+{% api-method-parameter name="item\_name" type="string" required=false %}
+The name of the item which offer will be created.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="growid" type="string" required=false %}
+The GrowID of the user creating the advertisement. Must be 3 to 18 characters in length, exclusively containing alphanumeric characters.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="quantity" type="integer" required=false %}
+The quantity of the advertised item. Must be greater than 1.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="price" type="integer" required=false %}
+The price of the advertised item. Must be greater than 1.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="world\_name" type="string" required=false %}
+The world name where the item is being bought or sold. Must be 1 to 24 characters in length, exclusively alphanumeric characters.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="type" type="integer" required=false %}
+Whether the user is buying \(0\) or selling \(1\) the advertised item.
+{% endapi-method-parameter %}
+{% endapi-method-form-data-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+Marketplace offer successfully updated.
+{% endapi-method-response-example-description %}
+
+```
+{
+  "id": 1,
+  "growid": "q773pj561j",
+  "guest_id": 86,
+  "item_id": 770,
+  "quantity": 4152,
+  "price": 6133,
+  "world_name": "SL7RNK84H4X7564EA5G1",
+  "type": 0,
+  "is_approved": 0,
+  "created_at": "2021-07-03T19:37:04.000000Z",
+  "updated_at": "2021-07-03T19:37:04.000000Z",
+  "item": {}
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=404 %}
+{% api-method-response-example-description %}
+Could not find an offer matching this query.
+{% endapi-method-response-example-description %}
+
+```
+{
+  "message": "No query results for model [App\\Models\\Offer] :id"
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=422 %}
+{% api-method-response-example-description %}
+Offer couldn't be updated.
+{% endapi-method-response-example-description %}
+
+```
+{
+    "message": "The given data was invalid.",
+    "errors": {
+        "item_name": [
+            "The selected item name is invalid."
+        ],
+        ...
+    }
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="patch" host="https://api.growstocks.org" path="/v1/offers/:id/approved/:action" %}
+{% api-method-summary %}
+Update approval status
+{% endapi-method-summary %}
+
+{% api-method-description %}
+This endpoint will update the approval status of the item corresponding to the given ID.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="id" type="integer" required=true %}
+The ID of the offer you wish to approve.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="action" type="string" required=true %}
+The action to perform \(make/remove\).
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=204 %}
+{% api-method-response-example-description %}
+Approval status successfully updated.
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=404 %}
+{% api-method-response-example-description %}
+Could not find an offer matching this query.
+{% endapi-method-response-example-description %}
+
+```
+{
+  "message": "No query results for model [App\\Models\\Offer] :id"
 }
 ```
 {% endapi-method-response-example %}

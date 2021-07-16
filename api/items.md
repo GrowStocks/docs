@@ -111,7 +111,7 @@ This endpoint will create a new item.
 {% api-method-request %}
 {% api-method-form-data-parameters %}
 {% api-method-parameter name="id" type="string" required=true %}
-The item's ID
+The ID of the item you wish to create.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="name" type="integer" required=true %}
@@ -199,7 +199,7 @@ This endpoint will update the information corresponding to the item associated t
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="id" type="integer" required=true %}
-The item's ID.
+The ID of the item you wish to update.
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 
