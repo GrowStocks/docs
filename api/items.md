@@ -8,7 +8,7 @@ description: >-
 
 {% api-method method="get" host="https://api.growstocks.org" path="/v1/items/:id" %}
 {% api-method-summary %}
-Get Items
+Get items
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -298,7 +298,7 @@ Update trending status
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This endpoint will update the trending status for the item corresponding to the given ID.
+This endpoint will update the trending status of the item corresponding to the given ID.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -346,7 +346,7 @@ Update daily quest status
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This endpoint will update the daily quest status for the item corresponding to the given ID.
+This endpoint will update the daily quest status of the item corresponding to the given ID.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -418,7 +418,7 @@ Update hidden status
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This endpoint will update the hidden status for the item corresponding to the given ID.
+This endpoint will update the hidden status of the item corresponding to the given ID.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -466,7 +466,7 @@ Update locked status
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This endpoint will update the locked status for the item corresponding to the given ID.
+This endpoint will update the locked status of the item corresponding to the given ID.
 {% endapi-method-description %}
 
 {% api-method-spec %}
